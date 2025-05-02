@@ -16,7 +16,7 @@ const Sidebar = () => {
     },
     {
       href: '/medicines',
-      icon: '/icons/  2.svg',
+      icon: '/icons/2.svg',
       label: 'Medicines',
     },
     {
