@@ -43,7 +43,7 @@ export default function Home() {
         <div className="w-full lg:w-3/4 p-8">
           <h2 className="text-2xl font-bold text-[#18442A]">ABOUT US</h2>
           <p className="mt-4 text-gray-600">
-            THIS WILL BE THE CONTACT PLACEHOLDER.
+            THIS WILL BE THE CONTACT test test test test
           </p>
         </div>
       </div>
