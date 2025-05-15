@@ -30,15 +30,24 @@ const HeroSection = () => {
       </div>
 
       {/* Illustration/Image */}
-      <div className="absolute right-0 bottom-0 hidden lg:block">
+      <div className="absolute right-0 top-1bottom-0 hidden lg:block">
         <Image
-          src="/images/medicine-bottle.png" // Replace with your actual image path
+          src="/icons/pharmcare-hero.png" // Replace with your actual image path
           alt="Medicine Bottle"
-          width={400}
-          height={400}
+          width={370}
+          height={420}
           className="object-contain"
         />
-      </div>
+        </div>
+        <div className="absolute left-5 top-1bottom-0 hidden lg:block">
+        <Image
+          src="/icons/medicine-bottle.svg" // Replace with your actual image path
+          alt="Medicine Bottle"
+          width={370}
+          height={420}
+          className="object-contain"
+        />
+        </div>
     </div>
   );
 };
