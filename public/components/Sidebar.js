@@ -16,7 +16,7 @@ const Sidebar = () => {
     },
     {
       href: '/medicines',
-      icon: '/icons/2.svg',
+      icon: '/icons/4.svg',
       label: 'Medicines',
     },
     {
@@ -34,7 +34,7 @@ const Sidebar = () => {
       <div>
         <div className="mb-6" >
           <Image
-            src="/icons/LOGO.svg"
+            src="/icons/PH.AI.svg"
             alt="Pharma AI Logo"
             width={50}
             height={40}
