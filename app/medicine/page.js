@@ -1,30 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import React from "react";
-import Image from "next/image";
+import React from 'react';
 
-const MedicinesPage = () => {
-  const medicines = [
-    {
-      id: 1,
-      name: 'Paracetamol',
-      description: 'Relieves pain and reduces fever.',
-      image: '/images/paracetamol.png', // Replace with actual image path
-    },
-    {
-      id: 2,
-      name: 'Ibuprofen',
-      description: 'Reduces inflammation and relieves pain.',
-      image: '/images/ibuprofen.png', // Replace with actual image path
-    },
-  ];
-
+export default function MedicinesPage() {
+  const [medicines, setMedicines] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredMedicines = medicines.filter((medicine) =>
-    medicine.name.toLowerCase().includes(searchTerm.toLowerCase())
+  useEffect(() => {
+    const fetchMedicines = async () => {
+      try {
+        const res = await fetch('/api/medicine');
+        const data = await res.json();
+        setMedicines(data);
+      } catch (error) {
+        console.error('Error loading medicines:', error);
+      }
+    };
+    fetchMedicines();
+  }, []);
+
+  const filtered = medicines.filter((med) =>
+    med.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -42,23 +40,34 @@ const MedicinesPage = () => {
           placeholder="Search for a medicine..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full lg:w-1/2 h-12 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-[#18442A]"
+          className="w-full lg:w-1/2 h-12 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-[#18442A] transition-all duration-300"
         />
       </div>
 
-      {/* Medicine List */}
+      {/* Medicine Cards */}
       <div className="max-w-6xl mx-auto px-8 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredMedicines.map((medicine) => (
-            <div key={medicine.id} className="bg-white p-6 rounded-lg shadow-md">
+          {filtered.map((med) => (
+            <div key={med._id} className="bg-white p-6 rounded-lg shadow-md">
               <img
-                src={medicine.image}
-                alt={medicine.name}
+                src={med.image}
+                alt={med.name}
                 className="w-full h-40 object-contain mb-4"
               />
-              <h3 className="text-xl font-semibold text-[#18442A]">{medicine.name}</h3>
-              <p className="mt-2 text-gray-600">{medicine.description}</p>
-              <Link href={`/medicine/${medicine.id}`}>
+              <h3 className="text-xl font-semibold text-[#18442A]">{med.name}</h3>
+              <p className="text-sm text-gray-600 italic">({med.genericName})</p>
+              <p className="text-sm text-gray-700 mt-2"><strong>Type:</strong> {med.type}</p>
+              <p className="text-sm text-gray-700"><strong>Form:</strong> {med.form}</p>
+              <p className="text-sm text-gray-700"><strong>Uses:</strong> {med.uses}</p>
+              <p className="text-sm text-gray-700"><strong>Side Effects:</strong> {med.sideEffects}</p>
+              <p className="text-sm text-gray-700"><strong>Precautions:</strong> {med.precautions}</p>
+              <p className="text-sm text-gray-700"><strong>Interactions:</strong> {med.interactions}</p>
+              <p className="text-sm text-gray-700"><strong>Not For:</strong> {med.notFor}</p>
+              <p className="text-sm text-gray-700"><strong>Storage:</strong> {med.storage}</p>
+              <p className="text-sm text-gray-700">
+                <strong>OTC:</strong> {med.isOTC ? 'Yes' : 'No'}
+              </p>
+              <Link href={`/medicine/${med._id}`}>
                 <button className="mt-4 bg-[#18442A] text-white px-4 py-2 rounded-md hover:bg-[#143b28] transition duration-300">
                   View Details
                 </button>
@@ -69,6 +78,4 @@ const MedicinesPage = () => {
       </div>
     </div>
   );
-};
-
-export default MedicinesPage;
+}
