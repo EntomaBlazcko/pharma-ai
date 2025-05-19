@@ -7,8 +7,8 @@ import React from 'react';
 
 const navItems = [
   { href: '/', icon: '/icons/HOME.png', label: 'Home' },
-  { href: '/medicines', icon: '/icons/MEDICINE.png', label: 'Medicines' },
-  { href: '/ask-ai', icon: '/icons/ASK AI.png', label: 'Ask AI' },
+  { href: '/medicine', icon: '/icons/MEDICINE.png', label: 'Medicines' },
+  { href: '/chatbot', icon: '/icons/ASK AI.png', label: 'Ask AI' },
 ];
 
 export default function Sidebar() {
