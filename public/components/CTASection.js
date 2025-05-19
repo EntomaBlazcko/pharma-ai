@@ -10,7 +10,7 @@ const CTASection = () => {
           Start your journey to safer self-medication with Pharma.AI today!
         </h2>
         <Link href="/medicine">
-          <button className="bg-white text-[#18442A] px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition duration-300">
+          <button className="bg-white text-[#18442A] px-6 py-3 rounded-md font-medium hover:bg-green-400 transition duration-300">
             Explore Medicines
           </button>
         </Link>

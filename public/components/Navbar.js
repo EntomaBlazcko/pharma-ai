@@ -57,13 +57,13 @@ const Navbar = () => {
       {/* Nav Items */}
       <ul className="ml-10 flex gap-6 text-[#18442A] font-medium w-70">
         <Link href="/">
-      <li>Home</li>
+      <li className="hover:text-green-600">Home</li>
       </Link>
-      <Link href="medicine">
-      <li>Medicines</li>
+      <Link href="medicine" >
+      <li className="hover:text-green-600">Medicines</li>
       </Link>
       <Link href="/chatbot">
-      <li>Ask AI</li>
+      <li className="hover:text-green-600">Ask AI</li>
       </Link>
       </ul>
     </div>
