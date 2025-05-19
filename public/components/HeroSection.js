@@ -20,10 +20,10 @@ const HeroSection = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 justify-center">
-          <Link href="/medicine" className="bg-[#18442A] text-white px-6 py-3 rounded-md font-medium hover:bg-grey-200 transition duration-300">
+          <Link href="/medicine" className="bg-[#18442A] text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-grey-200 transition duration-300">
             Explore Medicines
           </Link>
-          <Link href="/chatbot" className="border border-[#18442A] text-[#18442A] px-6 py-3 rounded-md font-medium hover:bg-green-400 transition duration-300">
+          <Link href="/chatbot" className="border border-[#18442A] text-[#18442A] px-6 py-3 rounded-md font-semibold text-lg hover:bg-green-500 transition duration-300">
             Ask AI
           </Link>
         </div>
