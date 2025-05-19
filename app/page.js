@@ -1,16 +1,14 @@
 import React from "react";
-
 import Image from "next/image";
+
+// Components
 import Sidebar from "../public/components/Sidebar";
 import Navbar from "../public/components/Navbar";
 import HeroSection from "../public/components/HeroSection";
 import CTASection from "../public/components/CTASection";
 import AboutSection from "../public/components/AboutSection";
 import FeatureSection from "../public/components/FeatureSection";
-
-
-
-
+import AboutUs from "../public/components/AboutUs";
 
 export default function Home() {
   return (
@@ -32,22 +30,17 @@ export default function Home() {
       {/* Call to Action Section */}
       <CTASection />
 
-      {/* Sidebar and Main Content */}
-      <div className="flex flex-col lg:flex-row mt-10">
-        {/* Sidebar */}
-        <div className="w-full lg:w-1/4 ml-20">
-          <Sidebar />
-        </div>
-
-        {/* Main Content */}
-        <div className="w-full lg:w-3/4 p-8">
-          <h2 className="text-2xl font-bold text-[#18442A]">ABOUT US</h2>
-          <p className="mt-4 text-gray-600">
-            THIS WILL BE FOR THE TEST COMMIT
-          </p>
-        </div>
+      {/* Sidebar (Only visible on large screens) */}
+      <div className="hidden lg:block fixed top-20 left-0 h-[calc(100vh-5rem)] overflow-y-auto z-10 mt-20">
+        <Sidebar />
       </div>
+
+      {/* Centered About Us Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <AboutUs />
+        </div>
+      </section>
     </div>
   );
 }
-

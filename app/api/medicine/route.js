@@ -1,7 +1,6 @@
 // app/api/medicine/route.js
 import { NextResponse } from "next/server";
-
-export async function GET() {
+export async function GET(request, { params }) {
   const mockData = [
     {
       _id: "1",
@@ -19,7 +18,7 @@ export async function GET() {
         "May interact with blood thinners, colchicine, itraconazole, omeprazole, ranitidine, bismuth citrate, sildenafil, tadalafil, vardenafil, theophylline, tolterodine, other antibiotics.",
       notFor:
         "Pregnant women and breastfeeding mothers unless the risk outweighs the benefits.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature between 20 and 25 degrees C (68 and 77 degrees F).",
       isOTC: true,
@@ -41,7 +40,7 @@ export async function GET() {
         "May interact with blood thinners, colchicine, itraconazole, omeprazole, ranitidine, bismuth citrate, sildenafil, tadalafil, vardenafil, theophylline, tolterodine, other antibiotics.",
       notFor:
         "Pregnant women and breastfeeding mothers unless the risk outweighs the benefits.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature between 20 and 25 degrees C (68 and 77 degrees F).",
       isOTC: true,
@@ -63,7 +62,7 @@ export async function GET() {
         "May interact with Amiodarone. Amiodarone is predicted to increase the exposure to Fexofenadine.",
       notFor:
         "if you have diabetes, phenylketonuria (PKU), or any other condition that requires you to limit/avoid these substances in your diet.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at room temperature away from light and moisture.",
       isOTC: true,
     },
@@ -84,7 +83,7 @@ export async function GET() {
         "May interact with Amiodarone. Amiodarone is predicted to increase the exposure to Fexofenadine.",
       notFor:
         "if you have diabetes, phenylketonuria (PKU), or any other condition that requires you to limit/avoid these substances in your diet.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at room temperature away from light and moisture.",
       isOTC: true,
     },
@@ -105,7 +104,7 @@ export async function GET() {
       interactions:
         "May interact with digoxin, diuretics (water pills), levothyroxine, chlorpheniramine or diphenhydramine (antihistamines commonly contained in cold, allergy, or over-the-counter sleep medications), antidepressants, beta-blockers, ergot medicines, heart rhythm medications, or MAO inhibitors.",
       notFor: "In the patient with a spontaneous circulation.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "In a cool dark place at room temperature, between 15-25°C, but not refrigerated, as temperatures below 15°C.",
       isOTC: true,
@@ -127,7 +126,7 @@ export async function GET() {
       interactions:
         "May interact with digoxin, diuretics (water pills), levothyroxine, chlorpheniramine or diphenhydramine (antihistamines commonly contained in cold, allergy, or over-the-countersleep medications), antidepressants, beta-blockers, ergot medicines, heart rhythm medications, or MAO inhibitors.",
       notFor: "In the patient with a spontaneous circulation.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "In a cool dark place at room temperature, between 15-25°C, but not refrigerated, a temperatures below 15°C.",
       isOTC: true,
@@ -147,7 +146,7 @@ export async function GET() {
         "This medicine may cause some people to become drowsy, have trouble thinking, or to have problems with movement.",
       interactions: "May interact with selegiline (Emsam, Zelapar). ",
       notFor: "CELEXA is not for use in children.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -167,7 +166,7 @@ export async function GET() {
         "This medicine may cause some people to become drowsy, have trouble thinking, or to have problems with movement.",
       interactions: "May interact with selegiline (Emsam, Zelapar). ",
       notFor: "CELEXA is not for use in children.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -187,7 +186,7 @@ export async function GET() {
         "This medicine may cause eye pain or discomfort, irritation, blurred vision, or start seeing halos or odd colors when you look at things.",
       interactions: "May interact with revefenacin and aclidinium.",
       notFor: "People with prostate disease.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Keep in a a cool, dry place where the temperature stays below 30°C.",
       isOTC: true,
@@ -207,7 +206,7 @@ export async function GET() {
         "This medicine may cause eye pain or discomfort, irritation, blurred vision, or start seeing halos or odd colors when you look at things.",
       interactions: "May interact with revefenacin and aclidinium.",
       notFor: "People with prostate disease.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Keep in a a cool, dry place where the temperature stays below 30°C.",
       isOTC: true,
@@ -230,7 +229,7 @@ export async function GET() {
         "May interact with clarithromycin, exenatide, probenecid, heart or blood pressure medications, nonsteroidal anti-inflammatory drugs (NSAIDs), aspirin or other salicylates, sulfa drugs, monoamine oxidase inhibitors (MAOIs), or other oral diabetes medications.",
       notFor:
         "You should not take it if you have type 1 diabetes mellitus, if you have diabetic ketoacidosis.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at controlled room temperature 20° to 25°C (68° to 77°F).",
       isOTC: true,
@@ -253,7 +252,7 @@ export async function GET() {
         "May interact with clarithromycin, exenatide, probenecid, heart or blood pressuremedications, nonsteroidal anti-inflammatory drugs (NSAIDs), aspirin or other salicylates, sulfa drugs, monoamine oxidase inhibitors (MAOIs), or other oral diabetes medications.",
       notFor:
         "You should not take it if you have type 1 diabetes mellitus, if you have diabetic ketoacidosis.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at controlled room temperature 20° to 25°C (68° to 77°F).",
       isOTC: true,
@@ -274,7 +273,7 @@ export async function GET() {
       interactions: "May interact with antibiotis.",
       notFor:
         "If you have psoriasis, do not inject into skin that is red, thick, raised, or scaly.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Kept cool—between 36°F to 46°F (2°C to 8°C).",
       isOTC: true,
     },
@@ -294,7 +293,7 @@ export async function GET() {
       interactions: "May interact with antibiotis.",
       notFor:
         "If you have psoriasis, do not inject into skin that is red, thick, raised, or scaly.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Kept cool—between 36°F to 46°F (2°C to 8°C).",
       isOTC: true,
     },
@@ -315,7 +314,7 @@ export async function GET() {
       interactions:
         "May interact with gold injections to treat arthritis, lithium, potassium supplements, salt substitutes that contain potassium, aspirin or other NSAIDs (non-steroidal anti-inflammatory drugs), or diuretics (water pills). ",
       notFor: "You should not use Vasotec if you have ever had angioedema.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 25°C (77°F); excursions permitted to 15-30°C (59-86°F).",
       isOTC: true,
@@ -337,7 +336,7 @@ export async function GET() {
       interactions:
         "May interact with gold injections to treat arthritis, lithium, potassium supplements,salt substitutes that contain potassium, aspirin or other NSAIDs (non-steroidal anti-inflammatory drugs), or diuretics (water pills). ",
       notFor: "You should not use Vasotec if you have ever had angioedema.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 25°C (77°F); excursions permitted to 15-30°C (59-86°F).",
       isOTC: true,
@@ -359,7 +358,7 @@ export async function GET() {
         "May interact with high fiber foods, such as sweet potatoes, black beans, and avocado.",
       notFor:
         "Should not be used to treat obesity or to help with weight management.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored at or below 25°C, protected from light and moisture.",
       isOTC: true,
     },
@@ -380,7 +379,7 @@ export async function GET() {
         "May interact with high fiber foods, such as sweet potatoes, black beans, and avocado.",
       notFor:
         "Should not be used to treat obesity or to help with weight management.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored at or below 25°C, protected from light and moisture.",
       isOTC: true,
     },
@@ -402,7 +401,7 @@ export async function GET() {
         "May interact with supplement or salt-substitute containing potassium.",
       notFor:
         "Patients with hyperkalemia, a history of angioedema, renal failure with prior lisinopril use, bilateral renal artery stenosis, concomitant use with aliskiren in patients with diabetes mellitus, and for patients receiving a neprilysin inhibitor or within 36 hours of taking one.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at or below 25°C (77°F) and can be stored for up to four weeks. ",
       isOTC: true,
@@ -425,7 +424,7 @@ export async function GET() {
         "May interact with supplement or salt-substitute containing potassium.",
       notFor:
         "Patients with hyperkalemia, a history of angioedema, renal failure with prior lisinopril use, bilateral renal artery stenosis, concomitant use with aliskiren in patients with diabetes mellitus, and for patients receiving a neprilysin inhibitor or within 36 hours of taking one.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at or below 25°C (77°F) and can be stored for up to four weeks. ",
       isOTC: true,
@@ -447,7 +446,7 @@ export async function GET() {
       interactions: "May interact with several drugs.",
       notFor:
         "People who have or had infection, such as tuberculosis, herpes, or fungal infection.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at 25ºC (77F); excursions permitted to 15-30ºC (59-86F).",
       isOTC: true,
     },
@@ -468,7 +467,7 @@ export async function GET() {
       interactions: "May interact with several drugs.",
       notFor:
         "People who have or had infection, such as tuberculosis, herpes, or fungal infection.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at 25ºC (77F); excursions permitted to 15-30ºC (59-86F).",
       isOTC: true,
     },
@@ -488,7 +487,7 @@ export async function GET() {
       interactions: "May interact with iron supplements.",
       notFor:
         "People with low levels of calcium, magnesium, or potassium in the blood.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in glass vials was stable for 3 days at room temperature (20°C to 25°C) with exposure to light.",
       isOTC: true,
@@ -509,7 +508,7 @@ export async function GET() {
       interactions: "May interact with iron supplements.",
       notFor:
         "People with low levels of calcium, magnesium, or potassium in the blood.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in glass vials was stable for 3 days at room temperature (20°C to 25°C) with exposure to light.",
       isOTC: true,
@@ -530,7 +529,7 @@ export async function GET() {
       interactions:
         "May interact with paxlovid (nirmatrelvir/ritonavir), some medications used to treat HIV, and warfarin (Coumadin, Jantoven).",
       notFor: "People who have certain liver problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -551,7 +550,7 @@ export async function GET() {
       interactions:
         "May interact with paxlovid (nirmatrelvir/ritonavir), some medications used to treat HIV, and warfarin (Coumadin, Jantoven).",
       notFor: "People who have certain liver problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -574,7 +573,7 @@ export async function GET() {
         "May interact with aliskiren, enalapril, captopril, lisinopril or ramipril. painkillers such as ibuprofen, naproxen, diclofenac, celecoxib or etoricoxib.",
       notFor:
         "Should not be taken while you are using certain other medicines and have diabetes.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store carvedilol tablet at 20˚ to 25˚C (68˚ to 77˚ F).",
       isOTC: true,
     },
@@ -596,7 +595,7 @@ export async function GET() {
         "May interact with aliskiren, enalapril, captopril, lisinopril or ramipril. painkillers such as ibuprofen, naproxen, diclofenac, celecoxib or etoricoxib.",
       notFor:
         "Should not be taken while you are using certain other medicines and have diabetes.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store carvedilol tablet at 20˚ to 25˚C (68˚ to 77˚ F).",
       isOTC: true,
     },
@@ -617,7 +616,7 @@ export async function GET() {
       interactions: "May interact with various supplements.",
       notFor:
         "People who have sleep apnoea, a condition that causes breathing problems when you're asleep.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in a refrigerator, between 36 F to 46 F (2 C to 8 C). Protect the medicine from exposure to light.",
       isOTC: true,
@@ -639,7 +638,7 @@ export async function GET() {
       interactions: "May interact with various supplements.",
       notFor:
         "People who have sleep apnoea, a condition that causes breathing problems when you're asleep.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in a refrigerator, between 36 F to 46 F (2 C to 8 C). Protect the medicine from exposure to light.",
       isOTC: true,
@@ -662,7 +661,7 @@ export async function GET() {
         "May interact with cyclosporine, lithium, diuretics (water pills), glyburide, methotrexate, blood thinners, steroids, ACE inhibitors, aspirin or other NSAIDs (nonsteroidal anti-inflammatory drugs).",
       notFor:
         "You should not take meloxicam for pain before, during, or after coronary artery bypass graft surgery.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Keep your tablets in a cool dry place where the temperature stays below 25°C.",
       isOTC: true,
@@ -685,7 +684,7 @@ export async function GET() {
         "May interact with cyclosporine, lithium, diuretics (water pills), glyburide, methotrexate, blood thinners, steroids, ACE inhibitors, aspirin or other NSAIDs (nonsteroidal anti-inflammatory drugs).",
       notFor:
         "You should not take meloxicam for pain before, during, or after coronary artery bypass graft surgery.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Keep your tablets in a cool dry place where the temperature stays below 25°C.",
       isOTC: true,
@@ -706,7 +705,7 @@ export async function GET() {
       interactions: "May interact with sleeping medications such as Zolpidem.",
       notFor:
         "People who have ever had an allergic reaction to lorazepam or any other medicine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored in a refrigerator, between 36 F to 46 F (2 C to 8 C).",
       isOTC: true,
     },
@@ -726,7 +725,7 @@ export async function GET() {
       interactions: "May interact with sleeping medications such as Zolpidem.",
       notFor:
         "People who have ever had an allergic reaction to lorazepam or any other medicine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored in a refrigerator, between 36 F to 46 F (2 C to 8 C).",
       isOTC: true,
     },
@@ -747,7 +746,7 @@ export async function GET() {
       interactions: "May interact with Bepridil, cisapride, dronedarone.",
       notFor:
         "Should not be used for bronchitis and certain types of urinary tract infections if there are other treatment options available.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store levofloxacin tablets and vials of levofloxacin injection solution at room temperature, 68°F to 77°F (20°C to 25°C).",
       isOTC: true,
@@ -770,7 +769,7 @@ export async function GET() {
         "May interact with opioids like oxycodone (Roxicodone, Oxycontin), benzodiazepines like alprazolam (Xanax), and alcohol.",
       notFor:
         "People who have or had mood problems, depression, suicidal thoughts or behavior.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -793,7 +792,7 @@ export async function GET() {
         "May interact with opioids like oxycodone (Roxicodone, Oxycontin), benzodiazepines like alprazolam (Xanax), and alcohol.",
       notFor:
         "People who have or had mood problems, depression, suicidal thoughts or behavior.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -814,7 +813,7 @@ export async function GET() {
       interactions: "May interact with antibiotics like rifabutin, rifampin.",
       notFor:
         "You should not take Fluconazole if you are pregnant, think you may be pregnant, are trying to become pregnant or breastfeeding.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store dry powder below 30°C (86°F).",
       isOTC: true,
     },
@@ -834,7 +833,7 @@ export async function GET() {
       interactions: "May interact with antibiotics like rifabutin, rifampin.",
       notFor:
         "You should not take Fluconazole if you are pregnant, think you may be pregnant, are trying to become pregnant or breastfeeding.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store dry powder below 30°C (86°F).",
       isOTC: true,
     },
@@ -855,7 +854,7 @@ export async function GET() {
         "May interact with alcohol, opioids, and various prescription drugs.",
       notFor:
         "People who have myasthenia gravis a condition that causes muscle weakness.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store VALIUM in a tightly closed container between 68°F to 77°F (20°C to 25°C) and out of the light.",
       isOTC: true,
@@ -877,7 +876,7 @@ export async function GET() {
         "May interact with alcohol, opioids, and various prescription drugs.",
       notFor:
         "People who have myasthenia gravis a condition that causes muscle weakness.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store VALIUM in a tightly closed container between 68°F to 77°F (20°C to 25°C) and out of the light.",
       isOTC: true,
@@ -899,7 +898,7 @@ export async function GET() {
       interactions:
         "May interact with metronidazole, dexamethasone, amiodarone.",
       notFor: "People with liver disease.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -921,7 +920,7 @@ export async function GET() {
       interactions:
         "May interact with metronidazole, dexamethasone, amiodarone.",
       notFor: "People with liver disease.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -941,7 +940,7 @@ export async function GET() {
       interactions: "May interact with nifedipine, atenolol, enalapril.",
       notFor:
         "People who have ever had an allergic reaction to tamsulosin or other similar medicines, such as alfuzosin, doxazosin, prazosin or terazosin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this drug at room temperature between 59°F and 86°F (15°C and 30°C).",
       isOTC: true,
@@ -961,7 +960,7 @@ export async function GET() {
       interactions: "May interact with nifedipine, atenolol, enalapril.",
       notFor:
         "People who have ever had an allergic reaction to tamsulosin or other similar medicines, such as alfuzosin, doxazosin, prazosin or terazosin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this drug at room temperature between 59°F and 86°F (15°C and 30°C).",
       isOTC: true,
@@ -984,7 +983,7 @@ export async function GET() {
         "May interact with azole antifungals, antibiotics, and antivirals.",
       notFor:
         "People who have liver disease or if blood tests suggest that your liver may not be working properly.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store the suspension at room temperature.",
       isOTC: true,
     },
@@ -1006,7 +1005,7 @@ export async function GET() {
         "May interact with azole antifungals, antibiotics, and antivirals.",
       notFor:
         "People who have liver disease or if blood tests suggest that your liver may not be working properly.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store the suspension at room temperature.",
       isOTC: true,
     },
@@ -1027,7 +1026,7 @@ export async function GET() {
         "May interact with aspirin, acetaminophen, ibuprofen, and naproxen, or injected antibiotics.",
       notFor:
         "People who are allergic to any of the following should not take fenofibrate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, ideally between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1049,7 +1048,7 @@ export async function GET() {
         "May interact with aspirin, acetaminophen, ibuprofen, and naproxen, or injected antibiotics.",
       notFor:
         "People who are allergic to any of the following should not take fenofibrate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, ideally between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1071,7 +1070,7 @@ export async function GET() {
         "May interact with allergy treatments, cimetidine, cyclosporine, fluconazole, insulin or oral diabetes medications, rifampin, antidepressants, heart or blood pressure medicines, heart rhythm medications.",
       notFor:
         "You should not take Coreg if you have asthma, bronchitis, emphysema, severe liveR  disease, or a serious heart condition such as heart block, or slow heart rate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store carvedilol tablet at 20˚ to 25˚C (68˚ to 77˚ F).",
       isOTC: true,
     },
@@ -1092,7 +1091,7 @@ export async function GET() {
         "May interact with allergy treatments, cimetidine, cyclosporine, fluconazole, insulin or oral diabetes medications, rifampin, antidepressants, heart or blood pressure medicines, heart rhythm medications.",
       notFor:
         "You should not take Coreg if you have asthma, bronchitis, emphysema, severe liveR  disease, or a serious heart condition such as heart block, or slow heart rate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store carvedilol tablet at 20˚ to 25˚C (68˚ to 77˚ F).",
       isOTC: true,
     },
@@ -1112,7 +1111,7 @@ export async function GET() {
       interactions: "May interact with Cyclosporine (Gengraf, Neoral).",
       notFor:
         "You should not take Lipitor if you have liver disease or cirrhosis.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store atorvastatin at room temperature between 68°F (20°C) and 77°F (25°C).",
       isOTC: true,
@@ -1133,7 +1132,7 @@ export async function GET() {
       interactions: "May interact with Cyclosporine (Gengraf, Neoral).",
       notFor:
         "You should not take Lipitor if you have liver disease or cirrhosis.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store atorvastatin at room temperature between 68°F (20°C) and 77°F (25°C).",
       isOTC: true,
@@ -1155,7 +1154,7 @@ export async function GET() {
         "May interact with azathioprine, chloramphenicol, hydroxychloroquine, retinoids, steroids, sulfa drugs, phenytoin, probenecid, tetracycline, theophylline, gold treatments, oral diabetes medications, penicillin antibiotics.",
       notFor:
         "Patients with psoriasis or rheumatoid arthritis with alcoholism, alcoholic liver disease or other chronic liver disease should not receive methotrexate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store methotrexate at room temperature and away from heat or moisture.",
       isOTC: true,
@@ -1177,7 +1176,7 @@ export async function GET() {
         "May interact with azathioprine, chloramphenicol, hydroxychloroquine, retinoids, steroids, sulfa drugs, phenytoin, probenecid, tetracycline, theophylline, gold treatments, oral diabetes medications, penicillin antibiotics.",
       notFor:
         "Patients with psoriasis or rheumatoid arthritis with alcoholism, alcoholic liver disease or other chronic liver disease should not receive methotrexate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store methotrexate at room temperature and away from heat or moisture.",
       isOTC: true,
@@ -1198,7 +1197,7 @@ export async function GET() {
       interactions: "May interact with calcium.",
       notFor:
         "You should not use Apresoline if you have coronary artery disease, or rheumatic heart disease affecting the mitral valve.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1219,7 +1218,7 @@ export async function GET() {
       interactions: "May interact with calcium.",
       notFor:
         "You should not use Apresoline if you have coronary artery disease, or rheumatic heart disease affecting the mitral valve.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1241,7 +1240,7 @@ export async function GET() {
       interactions:
         "May interact with sucralfate, cisplatin, cyclosporine, ethacrynic acid, lithium, methotrexate, phenytoin, antibiotics, heart or blood pressure medications, laxatives, salicylates such as aspirin, or steroids.",
       notFor: "You should not use Lasix if you are unable to urinate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 20°C to 25°C (68°F to 77°F); excursions permitted to 15°C to 30°C (59°F to 86°F).",
       isOTC: true,
@@ -1263,7 +1262,7 @@ export async function GET() {
       interactions:
         "May interact with sucralfate, cisplatin, cyclosporine, ethacrynic acid, lithium, methotrexate, phenytoin, antibiotics, heart or blood pressure medications, laxatives, salicylates such as aspirin, or steroids.",
       notFor: "You should not use Lasix if you are unable to urinate.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 20°C to 25°C (68°F to 77°F); excursions permitted to 15°C to 30°C (59°F to 86°F).",
       isOTC: true,
@@ -1284,7 +1283,7 @@ export async function GET() {
         "May interact with medications for high blood pressure, intravenous (IV) calcium, azole antifungals, anti-seizure medications, cimetidine, macrolide antibiotics, or tacrolimus.",
       notFor:
         "Should not be used during pregnancy. It may affect your baby if you take it during pregnancy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1305,7 +1304,7 @@ export async function GET() {
         "May interact with medications for high blood pressure, intravenous (IV) calcium, azole antifungals, anti-seizure medications, cimetidine, macrolide antibiotics, or tacrolimus.",
       notFor:
         "Should not be used during pregnancy. It may affect your baby if you take it during pregnancy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1327,7 +1326,7 @@ export async function GET() {
         "May interact with amiodarone, digoxin, atazanavir, cimetidine, quinidine, St. John's wort, azole antifungals, macrolide antibiotics, rifamycins, buspirone, cyclosporine, sirolimus, statins, anti-seizure drugs, benzodiazepines, caffeine, pseudoephedrine, phenylephrine.",
       notFor:
         "People with sick sinus syndrome, which is a heart rhythm problem, should not take diltiazem unless they have a working pacemaker.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1348,7 +1347,7 @@ export async function GET() {
         "May interact with amiodarone, digoxin, atazanavir, cimetidine, quinidine, St. John's wort, azole antifungals, macrolide antibiotics, rifamycins, buspirone, cyclosporine, sirolimus, statins, anti-seizure drugs, benzodiazepines, caffeine, pseudoephedrine, phenylephrine.",
       notFor:
         "People with sick sinus syndrome, which is a heart rhythm problem, should not take diltiazem unless they have a working pacemaker.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1370,7 +1369,7 @@ export async function GET() {
       interactions:
         "May interact with simvastatin, ketoconazole, itraconazole, ritonavir, diltiazem, and cyclosporine.",
       notFor: "You should not take Norvasc if you are allergic to amlodipine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1392,7 +1391,7 @@ export async function GET() {
       interactions:
         "May interact with simvastatin, ketoconazole, itraconazole, ritonavir, diltiazem, and cyclosporine.",
       notFor: "You should not take Norvasc if you are allergic to amlodipine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1413,7 +1412,7 @@ export async function GET() {
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor:
         "Should not be used if your heart is beating too slow (bradycardia).",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store intact ampoules at room temperature. Protect from light.",
       isOTC: true,
     },
@@ -1433,7 +1432,7 @@ export async function GET() {
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor:
         "Should not be used if your heart is beating too slow (bradycardia).",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store intact ampoules at room temperature. Protect from light.",
       isOTC: true,
     },
@@ -1454,7 +1453,7 @@ export async function GET() {
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor:
         "You should not use Sectral if you are allergic to it, or if you have a serious heart condition.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this drug at room temperature between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1476,7 +1475,7 @@ export async function GET() {
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor:
         "You should not use Sectral if you are allergic to it, or if you have a serious heart condition.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this drug at room temperature between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1497,7 +1496,7 @@ export async function GET() {
       interactions:
         "May interact with diabetes medication, heart medication, medicine for asthma or other breathing disorders, cold medicines, stimulant medicines, or diet pills.",
       notFor: "People who are allergic to labetalol hydrochloride.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature or under refrigeration (2-30°C [36-86°F]).",
       isOTC: true,
@@ -1518,7 +1517,7 @@ export async function GET() {
       interactions:
         "May interact with diabetes medication, heart medication, medicine for asthma or other breathing disorders, cold medicines, stimulant medicines, or diet pills.",
       notFor: "People who are allergic to labetalol hydrochloride.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature or under refrigeration (2-30°C [36-86°F]).",
       isOTC: true,
@@ -1539,7 +1538,7 @@ export async function GET() {
         "Tell your doctor if you are breast-feeding. you should know that telmisartan may cause drowsiness, dizziness, lightheadedness, or fainting.",
       interactions: "May interact with prednisone, ibuprofen, lisinopril.",
       notFor: "Do not use if you are pregnant.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at temperatures not exceeding 30°C.",
       isOTC: true,
     },
@@ -1559,7 +1558,7 @@ export async function GET() {
         "Tell your doctor if you are breast-feeding. you should know that telmisartan may cause drowsiness, dizziness, lightheadedness, or fainting.",
       interactions: "May interact with prednisone, ibuprofen, lisinopril.",
       notFor: "Do not use if you are pregnant.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at temperatures not exceeding 30°C.",
       isOTC: true,
     },
@@ -1579,7 +1578,7 @@ export async function GET() {
         "May interact with diuretics (water pills), digoxin, or blood thinners.",
       notFor:
         "People should not use Avapro if they are allergic to irbesartan.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1600,7 +1599,7 @@ export async function GET() {
         "May interact with diuretics (water pills), digoxin, or blood thinners.",
       notFor:
         "People should not use Avapro if they are allergic to irbesartan.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1620,7 +1619,7 @@ export async function GET() {
         "Tell your doctor if you have or have ever had heart failure or kidney or liver disease.",
       interactions: "May interact with ibuprofen (Advil, Motrin).",
       notFor: "People with diabetes.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1640,7 +1639,7 @@ export async function GET() {
         "Tell your doctor if you have or have ever had heart failure or kidney or liver disease.",
       interactions: "May interact with ibuprofen (Advil, Motrin).",
       notFor: "People with diabetes.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -1663,7 +1662,7 @@ export async function GET() {
         "May interact with muscle relaxers, or medicines for anxiety, depression, or seizures.",
       notFor:
         "People have ever had an allergic reaction to clonidine hydrochloride or any of the ingredients listed at the end of the CMI.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 25°C (77°F); excursions permitted to 15°-30°C (59°-86°F).",
       isOTC: true,
@@ -1686,7 +1685,7 @@ export async function GET() {
         "May interact with muscle relaxers, or medicines for anxiety, depression, or seizures.",
       notFor:
         "People have ever had an allergic reaction to clonidine hydrochloride or any of the ingredients listed at the end of the CMI.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 25°C (77°F); excursions permitted to 15°-30°C (59°-86°F).",
       isOTC: true,
@@ -1709,7 +1708,7 @@ export async function GET() {
         "May interact with Amikacin, aspirin, pentamicin, piperacillin, tobramycin.",
       notFor:
         "People with inflammatory bowel disease (including Crohn's disease or ulcerative colitis), kidney disease, or hearing loss.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store vancomycin hydrochloride capsules between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1732,7 +1731,7 @@ export async function GET() {
         "May interact with Amikacin, aspirin, pentamicin, piperacillin, tobramycin.",
       notFor:
         "People with inflammatory bowel disease (including Crohn's disease or ulcerative colitis), kidney disease, or hearing loss.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store vancomycin hydrochloride capsules between 68°F and 77°F (20°C and 25°C).",
       isOTC: true,
@@ -1753,7 +1752,7 @@ export async function GET() {
         "Tell your doctor if you have or have ever had burning or tingling in the hands, arms, feet, or legs; muscle twitching or weakness; or seizures.",
       interactions: "May interact with Aminohippuric acid.",
       notFor: "People with kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store vials of gentamicin injection solution at room temperature, 68°F to 77°F (20°C to 25°C).",
       isOTC: true,
@@ -1774,7 +1773,7 @@ export async function GET() {
         "Tell your doctor if you have or have ever had burning or tingling in the hands, arms, feet, or legs; muscle twitching or weakness; or seizures.",
       interactions: "May interact with Aminohippuric acid.",
       notFor: "People with kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store vials of gentamicin injection solution at room temperature, 68°F to 77°F (20°C to 25°C).",
       isOTC: true,
@@ -1796,7 +1795,7 @@ export async function GET() {
         "May interact with Includes estradiol, carbamazepine, vancomycin.",
       notFor:
         "People with a history of pseudomembranous or ulcerative colitis should not take.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at controlled room temperature 20° to 25°C (68° to 77°F).",
       isOTC: true,
@@ -1818,7 +1817,7 @@ export async function GET() {
         "May interact with Includes estradiol, carbamazepine, vancomycin.",
       notFor:
         "People with a history of pseudomembranous or ulcerative colitis should not take.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at controlled room temperature 20° to 25°C (68° to 77°F).",
       isOTC: true,
@@ -1840,7 +1839,7 @@ export async function GET() {
       interactions: "May interact with atorvastatin, sertraline, trazodone.",
       notFor:
         "People have liver or kidney problems, and heart problems, including irregular heartbeats (arrhythmia).",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored between 15° to 30°C (59° to 86°F).",
       isOTC: true,
     },
@@ -1861,7 +1860,7 @@ export async function GET() {
       interactions: "May interact with atorvastatin, sertraline, trazodone.",
       notFor:
         "People have liver or kidney problems, and heart problems, including irregular heartbeats (arrhythmia).",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored between 15° to 30°C (59° to 86°F).",
       isOTC: true,
     },
@@ -1883,7 +1882,7 @@ export async function GET() {
         "May interact with Antibiotics (dapsone, sulfonamides, nitrofurantoin, paraaminosalicylic acid.",
       notFor:
         "Patients with known hypersensitivity to ceftriaxone, any of its excipients or to any other cephalosporin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature 77°F (25°C) or below and protected from light.",
       isOTC: true,
@@ -1906,7 +1905,7 @@ export async function GET() {
         "May interact with Antibiotics (dapsone, sulfonamides, nitrofurantoin, paraaminosalicylic acid.",
       notFor:
         "Patients with known hypersensitivity to ceftriaxone, any of its excipients or to any other cephalosporin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature 77°F (25°C) or below and protected from light.",
       isOTC: true,
@@ -1928,7 +1927,7 @@ export async function GET() {
       interactions: "May interact with furosemide, warfarin, nifedipine.",
       notFor:
         "People who are allergic to cefixime or to other cephalosporin antibiotics",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in the refrigerator or at room temperature, between 36 F and 77 F (2 C to 25 C).",
       isOTC: true,
@@ -1950,7 +1949,7 @@ export async function GET() {
       interactions: "May interact with furosemide, warfarin, nifedipine.",
       notFor:
         "People who are allergic to cefixime or to other cephalosporin antibiotics",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in the refrigerator or at room temperature, between 36 F and 77 F (2 C to 25 C).",
       isOTC: true,
@@ -1973,7 +1972,7 @@ export async function GET() {
         "May interact with antacids such as aluminum hydroxide, calcium carbonate, magnesium hydroxide, or sodium bicarbonate.",
       notFor:
         "Patients with known allergy to the cephalosporin group of antibiotics.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the tablets in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -1996,7 +1995,7 @@ export async function GET() {
         "May interact with antacids such as aluminum hydroxide, calcium carbonate, magnesium hydroxide, or sodium bicarbonate.",
       notFor:
         "Patients with known allergy to the cephalosporin group of antibiotics.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the tablets in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -2018,7 +2017,7 @@ export async function GET() {
       interactions:
         "May interact with certain medications and supplements, such as metformin, warfarin, and zinc.",
       notFor: "People with kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -2040,7 +2039,7 @@ export async function GET() {
       interactions:
         "May interact with certain medications and supplements, such as metformin, warfarin, and zinc.",
       notFor: "People with kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -2062,7 +2061,7 @@ export async function GET() {
       interactions:
         "May interact with fusidic acid, methotrexate, tetracyclines, warfarin, khat, guar gum.",
       notFor: "Patient with history of allergy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the capsules at room temperature away from light and moisture.",
       isOTC: true,
@@ -2084,7 +2083,7 @@ export async function GET() {
       interactions:
         "May interact with fusidic acid, methotrexate, tetracyclines, warfarin, khat, guar gum.",
       notFor: "Patient with history of allergy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the capsules at room temperature away from light and moisture.",
       isOTC: true,
@@ -2105,7 +2104,7 @@ export async function GET() {
       interactions: "May interact with anticoagulants like warfarin.",
       notFor:
         "People who are allergic to any of the following should not use ampicillin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -2126,7 +2125,7 @@ export async function GET() {
       interactions: "May interact with anticoagulants like warfarin.",
       notFor:
         "People who are allergic to any of the following should not use ampicillin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -2148,7 +2147,7 @@ export async function GET() {
       interactions: "May interact with tetracycline and probenecid.",
       notFor:
         "People with a history of a hypersensitivity (anaphylactic) reaction to any penicillin.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the tablets at room temperature and away from excess heat and moisture.",
       isOTC: true,
@@ -2170,7 +2169,7 @@ export async function GET() {
       interactions:
         "May interact with warfarin, theophylline or aminophylline for asthma, and tizanidine a medicine used for muscle stiffness.",
       notFor: "People have problems with kidneys and diabetes.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored at room temperature, which is generally between 68 F to 77 F (20 C to 25 C) for 14 days.",
       isOTC: true,
@@ -2190,7 +2189,7 @@ export async function GET() {
       interactions: "May interact with hydroxyzine, loratadine.",
       notFor:
         "Older adults should not usually take flurazepam because it is not as safe as other medications that can be used to treat the same condition.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in a dry place with a recommended maximum storage temperature of 25° C.",
       isOTC: true,
@@ -2210,7 +2209,7 @@ export async function GET() {
       interactions: "May interact with hydroxyzine, loratadine.",
       notFor:
         "Older adults should not usually take flurazepam because it is not as safe as other medications that can be used to treat the same condition.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Stored in a dry place with a recommended maximum storage temperature of 25° C.",
       isOTC: true,
@@ -2232,7 +2231,7 @@ export async function GET() {
         "May interact with Antacids, aspirin and aspirin-like medications.",
       notFor:
         " Do not take indomethacin right before or after a heart surgery called coronary artery bypass graft.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at 20° to 25°C (68° to 77°F).",
       isOTC: true,
     },
@@ -2253,7 +2252,7 @@ export async function GET() {
         "May interact with Antacids, aspirin and aspirin-like medications.",
       notFor:
         " Do not take indomethacin right before or after a heart surgery called coronary artery bypass graft.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at 20° to 25°C (68° to 77°F).",
       isOTC: true,
     },
@@ -2272,7 +2271,7 @@ export async function GET() {
         "You should not use Toradol if you have any active or recent bleeding (include bleeding inside your body), a head injury, a stomach ulcer, severe kidney disease, a bleeding or blood clotting disorder.",
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor: "Patients with renal disease or renal failure.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -2292,7 +2291,7 @@ export async function GET() {
         "You should not use Toradol if you have any active or recent bleeding (include bleeding inside your body), a head injury, a stomach ulcer, severe kidney disease, a bleeding or blood clotting disorder.",
       interactions: "May interact with amlodipine, prednisone, ibuprofen.",
       notFor: "Patients with renal disease or renal failure.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -2315,7 +2314,7 @@ export async function GET() {
         "If you take Prilosec, know that it can potentially interact with warfarin, citalopram (Celexa), and digoxin.",
       notFor:
         "People have ever had an allergic reaction to prilosec or any other medicine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -2338,7 +2337,7 @@ export async function GET() {
         "If you take Prilosec, know that it can potentially interact with warfarin, citalopram (Celexa), and digoxin.",
       notFor:
         "People have ever had an allergic reaction to prilosec or any other medicine.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light. Keep from freezing.",
       isOTC: true,
@@ -2360,7 +2359,7 @@ export async function GET() {
         " Claritin interacts with alcohol, other oral antihistamines, and medications that cause drowsiness, such as muscle relaxers.",
       notFor:
         "Claritin is generally avoided during pregnancy and nursing. Pregnant women may take Claritin only if it is clearly needed.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store between 20º to 25º C (68º to 77º F). Protect from excessive moisture.",
       isOTC: true,
@@ -2382,7 +2381,7 @@ export async function GET() {
         " Claritin interacts with alcohol, other oral antihistamines, and medications that cause drowsiness, such as muscle relaxers.",
       notFor:
         "Claritin is generally avoided during pregnancy and nursing. Pregnant women may take Claritin only if it is clearly needed.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store between 20º to 25º C (68º to 77º F). Protect from excessive moisture.",
       isOTC: true,
@@ -2404,7 +2403,7 @@ export async function GET() {
       interactions: "May interact with anticoagulants like warfarin.",
       notFor:
         "Should not take this medicine if you already have bleeding in your stomach or intestines.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Stored in a refrigerator and used within 6 hours.",
       isOTC: true,
     },
@@ -2426,7 +2425,7 @@ export async function GET() {
         "Amoxil interacts with medications like warfarin, allopurinol, and probenecid.",
       notFor:
         "Amoxil is not suitable for everyone. Like people have liver or kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store in a dry place at temperatures not exceeding 25°C.",
       isOTC: true,
     },
@@ -2448,7 +2447,7 @@ export async function GET() {
         "Amoxil interacts with medications like warfarin, allopurinol, and probenecid.",
       notFor:
         "Amoxil is not suitable for everyone. Like people have liver or kidney problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store in a dry place at temperatures not exceeding 25°C.",
       isOTC: true,
     },
@@ -2470,7 +2469,7 @@ export async function GET() {
         "May interact with Antiplatelet agents (such as eptifibatide, ticlopidine, tirofiban).",
       notFor:
         "If you have recently been injured and if you have or have ever had liver or kidney disease or any condition that may cause bleeding, including stomach problems such as ulcers.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store clopidogrel at room temperature near 77°F (25°C).",
       isOTC: true,
     },
@@ -2491,7 +2490,7 @@ export async function GET() {
         "May interact with Antiplatelet agents (such as eptifibatide, ticlopidine, tirofiban).",
       notFor:
         "If you have recently been injured and if you have or have ever had liver or kidney disease or any condition that may cause bleeding, including stomach problems such as ulcers.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store clopidogrel at room temperature near 77°F (25°C).",
       isOTC: true,
     },
@@ -2511,7 +2510,7 @@ export async function GET() {
       interactions:
         "Meclizine can interact with sleep medications, benzodiazepines, and allergy medications like Benadryl.",
       notFor: "Persons with known hypersensitivity to meclizine hydrochloride.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this medication at room temperature, protect it from light and moisture, and keep it ut of the reach of children.",
       isOTC: true,
@@ -2532,7 +2531,7 @@ export async function GET() {
       interactions:
         "Meclizine can interact with sleep medications, benzodiazepines, and allergy medications like Benadryl.",
       notFor: "Persons with known hypersensitivity to meclizine hydrochloride.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store this medication at room temperature, protect it from light and moisture, and keep it ut of the reach of children.",
       isOTC: true,
@@ -2555,7 +2554,7 @@ export async function GET() {
         "Diatabs may interact with sertraline, trazodone, albuterol.",
       notFor:
         "it is for a child under 12 years old. If the patient is pregnant or breastfeeding.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -2578,7 +2577,7 @@ export async function GET() {
         "Diatabs may interact with sertraline, trazodone, albuterol.",
       notFor:
         "it is for a child under 12 years old. If the patient is pregnant or breastfeeding.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store the medicine in a closed container at room temperature, away from heat, moisture, and direct light.",
       isOTC: true,
@@ -2599,7 +2598,7 @@ export async function GET() {
       interactions:
         "There may be other drugs that can interact with Robitussin.",
       notFor: " Take every 6 hours or as directed by a doctor.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep out of reach of children.",
       isOTC: true,
     },
@@ -2619,7 +2618,7 @@ export async function GET() {
       interactions:
         "There may be other drugs that can interact with Robitussin.",
       notFor: " Take every 6 hours or as directed by a doctor.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep out of reach of children.",
       isOTC: true,
     },
@@ -2640,7 +2639,7 @@ export async function GET() {
         "A product that may interact with this drug is Fezolinetant.",
       notFor:
         "Do not take this medicine for more than 14 days in a row without talking with your doctor.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 4-30°C (39-86°F). And protect from light and excessive heat.",
       isOTC: true,
@@ -2662,7 +2661,7 @@ export async function GET() {
         "A product that may interact with this drug is Fezolinetant.",
       notFor:
         "Do not take this medicine for more than 14 days in a row without talking with your doctor.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at 4-30°C (39-86°F). And protect from light and excessive heat.",
       isOTC: true,
@@ -2684,7 +2683,7 @@ export async function GET() {
       interactions:
         "Ventolin may interact with prednisone, metoprolol, sertraline.",
       notFor: "Allergic to it or any of the ingredients in it.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Protect from frost and direct sunlight.",
       isOTC: true,
     },
@@ -2705,7 +2704,7 @@ export async function GET() {
       interactions:
         "Ventolin may interact with prednisone, metoprolol, sertraline.",
       notFor: "Allergic to it or any of the ingredients in it.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Protect from frost and direct sunlight.",
       isOTC: true,
     },
@@ -2726,7 +2725,7 @@ export async function GET() {
       interactions: "Metformin may interact with some diabetes medications.",
       notFor:
         "Metformin does not help patients who have insulin-dependent or type 1 diabetes because they cannot produce insulin from their pancreas gland.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep in a cool and dry place, away from direct sunlight.",
       isOTC: true,
     },
@@ -2747,7 +2746,7 @@ export async function GET() {
       interactions: "Metformin may interact with some diabetes medications.",
       notFor:
         "Metformin does not help patients who have insulin-dependent or type 1 diabetes because they cannot produce insulin from their pancreas gland.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep in a cool and dry place, away from direct sunlight.",
       isOTC: true,
     },
@@ -2767,7 +2766,7 @@ export async function GET() {
       interactions:
         "Cetirizine may interact with zolpidem (Ambien) and alprazolam (Xanax).",
       notFor: "Cetirizine is not suitable for some people.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Cetirizine tablets should be stored in the original container at room temperature, between 20-25°C (68-77°F). Oral syrups should be stored at room temperature or in the refrigerator.",
       isOTC: true,
@@ -2788,7 +2787,7 @@ export async function GET() {
       interactions:
         "Cetirizine may interact with zolpidem (Ambien) and alprazolam (Xanax).",
       notFor: "Cetirizine is not suitable for some people.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Cetirizine tablets should be stored in the original container at room temperature, between 20-25°C (68-77°F). Oral syrups should be stored at room temperature or in the refrigerator.",
       isOTC: true,
@@ -2809,7 +2808,7 @@ export async function GET() {
       interactions:
         "Solmux may interact with ibuprofen, naproxen, diclofenac or high-dose aspirin.",
       notFor: "Patients are allergic to any ingredient in the products.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at temperatures not exceeding 30°C.",
       isOTC: true,
     },
@@ -2829,7 +2828,7 @@ export async function GET() {
       interactions:
         "Solmux may interact with ibuprofen, naproxen, diclofenac or high-dose aspirin.",
       notFor: "Patients are allergic to any ingredient in the products.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at temperatures not exceeding 30°C.",
       isOTC: true,
     },
@@ -2850,7 +2849,7 @@ export async function GET() {
       interactions: "It's safe to take advil with paracetamol or codeine.",
       notFor:
         "Do not use this medicine just before or after heart bypass surgery.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -2872,7 +2871,7 @@ export async function GET() {
       interactions: "It's safe to take advil with paracetamol or codeine.",
       notFor:
         "Do not use this medicine just before or after heart bypass surgery.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage:
         "Store at room temperature, between 68 F to 77 F (20 C to 25 C).",
       isOTC: true,
@@ -2891,7 +2890,7 @@ export async function GET() {
         "Ponstan may cause dizziness or light-headedness in some people.",
       interactions: "Mefenamic acid may interact with anticoagulants.",
       notFor: "Not to be used at all during the third trimester of pregnancy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at room temperature or below 30°C.",
       isOTC: true,
     },
@@ -2909,7 +2908,7 @@ export async function GET() {
         "Ponstan may cause dizziness or light-headedness in some people.",
       interactions: "Mefenamic acid may interact with anticoagulants.",
       notFor: "Not to be used at all during the third trimester of pregnancy.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Store at room temperature or below 30°C.",
       isOTC: true,
     },
@@ -2926,7 +2925,7 @@ export async function GET() {
       precautions: "Do not exceed 4g per day. Avoid alcohol.",
       interactions: "May interact with anticoagulants like warfarin.",
       notFor: "People with severe liver problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep in a cool, dry place away from direct sunlight.",
       isOTC: true,
     },
@@ -2943,14 +2942,25 @@ export async function GET() {
       precautions: "Do not exceed 4g per day. Avoid alcohol.",
       interactions: "May interact with anticoagulants like warfarin.",
       notFor: "People with severe liver problems.",
-      form: "Tablet", 
+      form: "Tablet", // Tablet, Capsule, Syrup, etc.
       storage: "Keep in a cool, dry place away from direct sunlight.",
       isOTC: true,
     },
   ];
 
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 500));
 
+await new Promise((resolve) => setTimeout(resolve, 500)); // simulate delay
   return NextResponse.json(mockData);
+
+  const medicine = mockData.find(item => item._id === params.id);
+
+  if (!medicine) {
+    return NextResponse.json(
+      { error: "Medicine not found" },
+      { status: 404 }
+    );
+  }
+
+  return NextResponse.json(medicine);
+
 }
