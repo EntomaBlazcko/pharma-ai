@@ -7,7 +7,7 @@ import React from 'react';
 
 const navItems = [
   { href: '/', icon: '/icons/HOME.png', label: 'Home' },
-  { href: '/medicine', icon: '/icons/MEDICINE.png', label: 'Medicines' },
+  { href: '/medicine', icon: '/icons/MEDICINE.png', label: 'Medicinessssssss' },
   { href: '/chatbot', icon: '/icons/ASK AI.png', label: 'Ask AI' },
 ];
 
