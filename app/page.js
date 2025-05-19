@@ -30,11 +30,6 @@ export default function Home() {
       {/* Call to Action Section */}
       <CTASection />
 
-      {/* Sidebar (Only visible on large screens) */}
-      <div className="hidden lg:block fixed top-20 left-0 h-[calc(100vh-5rem)] overflow-y-auto z-10 mt-20">
-        <Sidebar />
-      </div>
-
       {/* Centered About Us Section */}
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
