@@ -34,37 +34,36 @@ const Navbar = () => {
         {/* Search Icon */}
         <Image
           src="/icons/search.svg"
-          width={24}
-          height={24}
+          width={35}
+          height={30}
           alt="Search"
           onClick={() => setShowSearch(!showSearch)}
           className="cursor-pointer z-20" // Ensure the icon stays on top
         />
 
-        {/* Search Input (Slide In from Left) */}
+        {/* Search Input with smoother transition */}
         <input
           type="text"
           placeholder="Search medicine..."
-          className={`h-10 pl-3 pr-10 border border-[#18442A] rounded-md bg-white text-sm text-black shadow transition-all duration-300 absolute left-10 top-1/2 transform -translate-y-1/2 ${
-            showSearch ? 'w-64 opacity-100 translate-x-0' : 'w-0 opacity-0 -translate-x-full ease-in-out'
+          className={`absolute left-10 top-1/2 h-10 -translate-y-1/2 border border-[#18442A] rounded-md bg-white pl-3 pr-10 text-sm text-black shadow transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            showSearch 
+              ? 'w-64 opacity-100 translate-x-0' 
+              : 'w-0 opacity-0 -translate-x-4 pointer-events-none'
           }`}
-          style={{
-            transitionProperty: 'width, opacity, transform',
-          }}
         />
       </div>
 
       {/* Nav Items */}
       <ul className="ml-10 flex gap-6 text-[#18442A] font-medium w-70">
         <Link href="/">
-      <li className="hover:text-green-600">Home</li>
-      </Link>
-      <Link href="medicine" >
-      <li className="hover:text-green-600">Medicines</li>
-      </Link>
-      <Link href="/chatbot">
-      <li className="hover:text-green-600">Ask AI</li>
-      </Link>
+          <li>Home</li>
+        </Link>
+        <Link href="medicine">
+          <li>Medicines</li>
+        </Link>
+        <Link href="/chatbot">
+          <li>Ask AI</li>
+        </Link>
       </ul>
     </div>
   );
