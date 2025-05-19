@@ -43,7 +43,7 @@ export default function ChatbotPage() {
     // Initialize chat with welcome message
     setChatHistory([{
       sender: 'bot',
-      text: 'Hello! I am your OTC medicine assistant. How can I help you today?'
+      text: 'Hello! I am PH.AI your friendly medicine assistant. How can I help you today?'
     }]);
     
     // Smooth scroll to chat container
@@ -161,10 +161,12 @@ export default function ChatbotPage() {
         >
           <div className="h-screen flex flex-col items-center justify-center p-4 bg-white w-full">
             <div className="w-full max-w-4xl p-6 text-center">
-              <h1 className="text-3xl font-bold text-[#18442A] mb-4">Welcome to PharmaBot</h1>
+              <h1 className="text-3xl font-bold text-[#18442A] mb-4">HELLO I AM PH.AI</h1>
               <p className="text-lg text-gray-700 mb-6">
-                Your personal assistant for medicine information in the Philippines. 
-                Ask about medications available at Mercury Drug, Watsons, or other local pharmacies.
+                Your personal assistant for over-the-counter (OTC) medicine information in the Philippines.
+Get details about symptoms, recommended medications, side effects, precautions, and usage guidelines.
+Ask about medicines available at Mercury Drug, Watsons, and other local pharmacies — all in one place.
+Powered by AI, Pharma.AI helps you make informed decisions, but always consult a healthcare professional when needed.
               </p>
               <button 
                 onClick={scrollToChat}
@@ -174,7 +176,7 @@ export default function ChatbotPage() {
                 {isTransitioning ? 'Loading...' : 'Start Chatting'}
               </button>
               <div className="flex flex-col items-center mt-12">
-                <p className="text-gray-500 mb-4">Click the button to start chatting</p>
+              
                 <svg 
                   className="animate-bounce w-8 h-8 text-[#18442A] cursor-pointer" 
                   fill="none" 
@@ -203,7 +205,7 @@ export default function ChatbotPage() {
         >
           {/* Chat Header */}
           <div className="border-b border-gray-200 bg-white p-4 sticky top-0 z-10">
-            <h2 className="text-xl font-semibold text-[#18442A]">PharmaBot Assistant</h2>
+            <h2 className="text-xl font-semibold text-[#18442A]">PH.AI Your AI Medicine Assistant</h2>
           </div>
 
           {/* Messages Container */}
@@ -278,7 +280,7 @@ export default function ChatbotPage() {
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              PharmaBot may produce inaccurate information. Always consult a healthcare professional.
+              Pharma.AI may produce inaccurate information. Always consult a healthcare professional. If symptoms persist, please consult your doctor.
             </p>
           </div>
         </div>
