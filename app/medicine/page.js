@@ -111,8 +111,8 @@ export default function MedicinesPage() {
       <div className="flex-1 ml-20">
         {/* Header */}
         <div className="py-10 bg-[#18442A] text-white text-center">
-          <h1 className="text-4xl font-bold">Explore OTC Medicines</h1>
-          <p className="mt-2 text-lg">Find trusted over-the-counter medicines for your needs.</p>
+          <h1 className="text-4xl font-bold">Find the Right Medicine, Fast. Explore OTC Medicines</h1>
+          <p className="mt-2 text-lg">Easily browse reliable over-the-counter medicines available at Mercury Drug, Watsons, and more — all in one place.</p>
         </div>
 
         {/* Search and Filters */}

@@ -37,11 +37,6 @@ const Navbar = () => {
     >
       {/* Nav Items */}
       <ul className="flex gap-6 text-[#18442A] font-medium">
-        <li key="home">
-          <Link href="/" className="block py-2">
-            Home
-          </Link>
-        </li>
         <li key="medicine">
           <Link href="/medicine" className="block py-2">
             Medicines
